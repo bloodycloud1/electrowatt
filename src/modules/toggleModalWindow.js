@@ -5,7 +5,8 @@ const toggleModalWindow = () => {
     const modalBlock = document.querySelector('.modal-callback');
     const modalBlockCloseBtn = document.querySelector('.modal-close');
     const overlay = document.querySelector('.modal-overlay');
-
+    const buttonService = document.querySelector('.button-services');
+    // функция toggle для открытия (закртыия) модального окна
     const toggleModalWindowCallBack = (toggle) => {
         if(toggle === 'open') {
             modalBlock.style.display = 'block';
@@ -15,7 +16,7 @@ const toggleModalWindow = () => {
             overlay.style.display = 'none';
         }
     };
-
+    
     callbackBtns.forEach((item) => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
@@ -24,11 +25,16 @@ const toggleModalWindow = () => {
             }
         });
     });
-
+    // кнопка Не нашли нужной услуги?
+    buttonService.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleModalWindowCallBack('open');
+    });
+    // оверлей
     overlay.addEventListener('click', () => {
         toggleModalWindowCallBack('close');
     });
-
+    // кнопка закрытие модального окна (крестик)
     modalBlockCloseBtn.addEventListener('click', () => {
         toggleModalWindowCallBack('close');
     });
