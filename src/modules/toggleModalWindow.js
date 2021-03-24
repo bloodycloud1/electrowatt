@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 // модальное окно
 const toggleModalWindow = () => {
     const callbackBtns = document.querySelectorAll('.callback-btn');
