@@ -1,5 +1,6 @@
 'use strict';
 import toggleModalWindow from './modules/toggleModalWindow';
+import topSlider from './modules/slider';
 import upScroll from './modules/upScroll';
 import sendFormModal from  './modules/sendFormModal';
 import accardeon from './modules/accardeon';
@@ -12,3 +13,5 @@ sendFormModal();
 accardeon();
 // скролл вверх
 upScroll();
+// топ слайдер
+topSlider();

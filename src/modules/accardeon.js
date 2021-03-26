@@ -18,12 +18,12 @@ const accardeon = () => {
         }
     };
 
-    accardeonSection.addEventListener('click', function(event) {
+    accardeonSection.addEventListener('click', (event) => {
         let target = event.target;
         // closest() проверяет у элемента селектор
         target = target.closest('.element');
         if(target) {
-            accardeonTitle.forEach(function(item, i) {
+            accardeonTitle.forEach((item, i) => {
                 if(item === target) {
                     toggleAccardeon(i);
                 }

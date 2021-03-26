@@ -29,10 +29,20 @@ const sendFormModal = () => {
         const loadMessage = 'Загрузка...';
         const successMessage = 'Спасибо! Мы скоро с вами свяжемся';
         const statusMessage = document.createElement('div');
+
         statusMessage.style.cssText = `
             font-size: 2rem;
             color: black; 
         `;
+
+        function clearInputs() {
+			let allFormInputs = formModalCallback.querySelectorAll('input');
+			allFormInputs.forEach(function(item) {
+				item.value = '';
+			});
+		}
+
+
         // модальное окно
         const modalBlock = document.querySelector('.modal-callback');
         const overlay = document.querySelector('.modal-overlay');
@@ -60,6 +70,8 @@ const sendFormModal = () => {
                 body[key] = value;
             });
 
+            clearInputs();
+            
             postData(body)
                 .then((response) => {
                     if(response.status !== 200) {
