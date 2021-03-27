@@ -34,7 +34,6 @@ const menuScroll = () => {
     // window.addEventListener('scroll', () => {
     //     console.log(serviceSection.offsetTop);
     // })
-
 };
 
 export default menuScroll;

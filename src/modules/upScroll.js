@@ -35,7 +35,6 @@ const upScroll = () => {
     };
 
     upScrollBtn.addEventListener('click', ()  => {
-        console.log(window.pageYOffset);
         scrolled = window.pageYOffset;
         // window.scrollTo(0, 0);
         scrollToTop();

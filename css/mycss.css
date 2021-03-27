@@ -1,0 +1,41 @@
+@media all and (min-width: 320px) {
+    .myclass {
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+    .slider-item {
+        flex: 0 0 100% !important;
+        margin: 0 10px !important;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .myclass {
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+    .slider-item {
+        flex: 0 0 100% !important;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .myclass {
+        width: 100% !important;
+        margin: 0 8px !important;
+    }
+    .slider-item {
+        flex: 0 0 50% !important;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .myclass {
+        width: 100% !important;
+        margin: 0 20px !important;
+    }
+    .slider-item {
+        flex: 0 0 33% !important;
+    }
+}
+
