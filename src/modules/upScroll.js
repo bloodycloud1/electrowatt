@@ -4,46 +4,42 @@ const upScroll = () => {
     const upScrollBtn = document.querySelector('.up');
     const serviceSection = document.getElementById('services');
 
+    let scrolled;
+    let timer;
+    let speedScroll = 40;
 
+    upScrollBtn.style.display = 'none';
 
-    const heightDocument = document.documentElement.clientHeight;
-    const serveiceSectionHeight = document.documentElement.clientHeight;
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset;
 
-    const scrollUpfunct = (element) => {
-        window.scroll({
-            left: 0,
-            top: element.offsetTop,
-            behavior: 'smooth',
-        });
-    }
+        if(scrollTop >= serviceSection.offsetTop) {
+            upScrollBtn.style.display = 'block';
+        } else {
+            upScrollBtn.style.display = 'none';
+        }
 
+    });
 
+    const scrollToTop = () => {
+        if(scrolled > 0) {
+            window.scrollTo(0, scrolled);
+            scrolled = scrolled - speedScroll; // скорость прокрутки
+            timer = setTimeout(() => {
+                scrollToTop();
+            });
+        } else {
+            clearTimeout(timer);
+            window.scrollTo(0, 0);
+        }
+    };
 
-
-
-
-
-
-
-
-
-    
-
-
-    // console.log('offset', serveiceSection.offsetHeight);
-    // console.log('top', serveiceSection.clientTop);
-    // console.log('clientHeight', serveiceSection.clientHeight);
-    // console.log('scrollHeight', serveiceSection.scrollHeight);
-    // scrollHeight
-    // console.log(document.documentElement.clientHeight);
-
-    if(serveiceSectionHeight >= heightDocument) {
-        upScrollBtn.style.display = 'block';
-    }
-
-    // console.dir(serveiceSection.clientHeight);
-    // console.dir(serveiceSection);
-
+    upScrollBtn.addEventListener('click', ()  => {
+        console.log(window.pageYOffset);
+        scrolled = window.pageYOffset;
+        // window.scrollTo(0, 0);
+        scrollToTop();
+    });
 };
 
 export default upScroll;
