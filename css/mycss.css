@@ -39,3 +39,9 @@
     }
 }
 
+
+@media all and (min-width: 992px) {
+    .big {
+        display: block !important;
+    }
+}

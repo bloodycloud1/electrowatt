@@ -30,10 +30,6 @@ const menuScroll = () => {
         e.preventDefault();
         scrollToSection(contactsSection);
     });
-
-    // window.addEventListener('scroll', () => {
-    //     console.log(serviceSection.offsetTop);
-    // })
 };
 
 export default menuScroll;
