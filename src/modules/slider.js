@@ -22,11 +22,10 @@ const topSlider = () => {
         index += slideStep;
     };
 
-
     const timerId = () => {
         setInterval(() => {
             moveSlide(1);
-        }, 3000);
+        }, time);
 
     };
     timerId();

@@ -38,7 +38,7 @@ eval("\nmodule.exports = function () {\n\treturn /[\\u001b\\u009b][[()#;?]*(?:[0
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_toggleModalWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/toggleModalWindow */ \"./src/modules/toggleModalWindow.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ \"./src/modules/slider.js\");\n/* harmony import */ var _modules_upScroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/upScroll */ \"./src/modules/upScroll.js\");\n/* harmony import */ var _modules_sendFormModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/sendFormModal */ \"./src/modules/sendFormModal.js\");\n/* harmony import */ var _modules_accardeon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accardeon */ \"./src/modules/accardeon.js\");\n\n\n\n\n\n\n // модальное окно\n\n(0,_modules_toggleModalWindow__WEBPACK_IMPORTED_MODULE_0__.default)(); // отправка формы\n\n(0,_modules_sendFormModal__WEBPACK_IMPORTED_MODULE_3__.default)(); // аккардеон в секции ЧАВО \n\n(0,_modules_accardeon__WEBPACK_IMPORTED_MODULE_4__.default)(); // скролл вверх\n\n(0,_modules_upScroll__WEBPACK_IMPORTED_MODULE_2__.default)(); // топ слайдер\n\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_1__.default)();\n\n//# sourceURL=webpack://electrowatt/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_toggleModalWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/toggleModalWindow */ \"./src/modules/toggleModalWindow.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ \"./src/modules/slider.js\");\n/* harmony import */ var _modules_upScroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/upScroll */ \"./src/modules/upScroll.js\");\n/* harmony import */ var _modules_sendFormModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/sendFormModal */ \"./src/modules/sendFormModal.js\");\n/* harmony import */ var _modules_accardeon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accardeon */ \"./src/modules/accardeon.js\");\n/* harmony import */ var _modules_menuScroll__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/menuScroll */ \"./src/modules/menuScroll.js\");\n\n\n\n\n\n\n\n\n\nvar App = function App() {\n  (0,_modules_menuScroll__WEBPACK_IMPORTED_MODULE_5__.default)(); // модальное окно\n\n  (0,_modules_toggleModalWindow__WEBPACK_IMPORTED_MODULE_0__.default)(); // отправка формы\n\n  (0,_modules_sendFormModal__WEBPACK_IMPORTED_MODULE_3__.default)(); // аккардеон в секции ЧАВО \n\n  (0,_modules_accardeon__WEBPACK_IMPORTED_MODULE_4__.default)(); // скролл вверх\n\n  (0,_modules_upScroll__WEBPACK_IMPORTED_MODULE_2__.default)(); // топ слайдер\n\n  (0,_modules_slider__WEBPACK_IMPORTED_MODULE_1__.default)();\n};\n\nApp();\n\n//# sourceURL=webpack://electrowatt/./src/index.js?");
 
 /***/ }),
 
@@ -50,6 +50,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\n\nvar accardeon = function accardeon() {\n  var accardeonSection = document.querySelector('.accordeon');\n  var accardeonTitle = accardeonSection.querySelectorAll('.element');\n\n  var toggleAccardeon = function toggleAccardeon(index) {\n    for (var i = 0; i < accardeonTitle.length; i++) {\n      var content = accardeonSection.querySelectorAll('.element-content');\n\n      if (index === i) {\n        accardeonTitle[i].classList.remove('active');\n        content[i].style.display = 'block';\n      } else {\n        accardeonTitle[i].classList.add('active');\n        content[i].style.display = 'none';\n      }\n    }\n  };\n\n  accardeonSection.addEventListener('click', function (event) {\n    var target = event.target; // closest() проверяет у элемента селектор\n\n    target = target.closest('.element');\n\n    if (target) {\n      accardeonTitle.forEach(function (item, i) {\n        if (item === target) {\n          toggleAccardeon(i);\n        }\n      });\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (accardeon);\n\n//# sourceURL=webpack://electrowatt/./src/modules/accardeon.js?");
+
+/***/ }),
+
+/***/ "./src/modules/menuScroll.js":
+/*!***********************************!*\
+  !*** ./src/modules/menuScroll.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\n\nvar menuScroll = function menuScroll() {\n  var topMenu = document.querySelector('.top-menu');\n  var servicePriceLink = topMenu.querySelectorAll('a')[0];\n  var faqLink = topMenu.querySelectorAll('a')[1];\n  var contactsLink = topMenu.querySelectorAll('a')[2];\n  var serviceSection = document.getElementById('services');\n  var faqSection = document.getElementById('faq');\n  var contactsSection = document.getElementById('contacts');\n\n  function scrollToSection(element) {\n    window.scroll({\n      left: 0,\n      top: element.offsetTop,\n      behavior: 'smooth'\n    });\n  }\n\n  servicePriceLink.addEventListener('click', function (e) {\n    e.preventDefault();\n    scrollToSection(serviceSection);\n  });\n  faqLink.addEventListener('click', function (e) {\n    e.preventDefault();\n    scrollToSection(faqSection);\n  });\n  contactsLink.addEventListener('click', function (e) {\n    e.preventDefault();\n    scrollToSection(contactsSection);\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menuScroll);\n\n//# sourceURL=webpack://electrowatt/./src/modules/menuScroll.js?");
 
 /***/ }),
 
@@ -71,7 +82,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\n\nvar topSlider = function topSlider() {\n  var slider = document.querySelector('.top-slider');\n  var slides = slider.querySelectorAll('.item');\n  var time = 3000;\n  var index = 0;\n\n  var moveSlide = function moveSlide(slideStep) {\n    if (index >= slides.length) {\n      index = 0;\n    }\n\n    slides.forEach(function (item, i) {\n      if (index === i) {\n        item.style.display = 'block';\n      } else {\n        item.style.display = 'none';\n      }\n    });\n    index += slideStep;\n  };\n\n  var timerId = function timerId() {\n    setInterval(function () {\n      moveSlide(1);\n    }, 3000);\n  };\n\n  timerId();\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (topSlider);\n\n//# sourceURL=webpack://electrowatt/./src/modules/slider.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\n\nvar topSlider = function topSlider() {\n  var slider = document.querySelector('.top-slider');\n  var slides = slider.querySelectorAll('.item');\n  var time = 3000;\n  var index = 0;\n\n  var moveSlide = function moveSlide(slideStep) {\n    if (index >= slides.length) {\n      index = 0;\n    }\n\n    slides.forEach(function (item, i) {\n      if (index === i) {\n        item.style.display = 'block';\n      } else {\n        item.style.display = 'none';\n      }\n    });\n    index += slideStep;\n  };\n\n  var timerId = function timerId() {\n    setInterval(function () {\n      moveSlide(1);\n    }, time);\n  };\n\n  timerId();\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (topSlider);\n\n//# sourceURL=webpack://electrowatt/./src/modules/slider.js?");
 
 /***/ }),
 
@@ -495,7 +506,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("c9fb9096bbf65a2d39f1")
+/******/ 		__webpack_require__.h = () => ("0b1a9232078bf000b815")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
