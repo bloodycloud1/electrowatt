@@ -2,17 +2,32 @@
 // скролл вверх
 const upScroll = () => {
     const upScrollBtn = document.querySelector('.up');
-    
+    const serviceSection = document.getElementById('services');
 
-    // console.log(upScrollBtn);
-    const serveiceSection = document.querySelector('.services-section');
 
-    upScrollBtn.style.display = 'none';
 
     const heightDocument = document.documentElement.clientHeight;
     const serveiceSectionHeight = document.documentElement.clientHeight;
 
+    const scrollUpfunct = (element) => {
+        window.scroll({
+            left: 0,
+            top: element.offsetTop,
+            behavior: 'smooth',
+        });
+    }
 
+
+
+
+
+
+
+
+
+
+
+    
 
 
     // console.log('offset', serveiceSection.offsetHeight);
@@ -28,12 +43,6 @@ const upScroll = () => {
 
     // console.dir(serveiceSection.clientHeight);
     // console.dir(serveiceSection);
-
-    const upScrollFunc = () => {
-
-    };
-
-    upScrollBtn.addEventListener('click', () => {upScrollFunc();});
 
 };
 

@@ -10,14 +10,13 @@ const menuScroll = () => {
     const faqSection = document.getElementById('faq');
     const contactsSection = document.getElementById('contacts');
 
-    function scrollToSection(element) {
+    const scrollToSection = (element) => {
         window.scroll({
             left: 0,
             top: element.offsetTop,
             behavior: 'smooth',
         });
-
-    }
+    };
     
     servicePriceLink.addEventListener('click', (e) => {
         e.preventDefault();
