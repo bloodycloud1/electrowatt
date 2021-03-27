@@ -29,6 +29,9 @@ const sendFormModal = () => {
         const loadMessage = 'Загрузка...';
         const successMessage = 'Спасибо! Мы скоро с вами свяжемся';
         const statusMessage = document.createElement('div');
+        // модальное окно
+        const modalBlock = document.querySelector('.modal-callback');
+        const overlay = document.querySelector('.modal-overlay');
 
         statusMessage.style.cssText = `
             font-size: 2rem;
@@ -41,11 +44,6 @@ const sendFormModal = () => {
 				item.value = '';
 			});
 		}
-
-
-        // модальное окно
-        const modalBlock = document.querySelector('.modal-callback');
-        const overlay = document.querySelector('.modal-overlay');
 
         const postData = (body) => {
             return fetch('./server.php', {

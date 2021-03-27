@@ -6,6 +6,10 @@ const toggleModalWindow = () => {
     const modalBlockCloseBtn = document.querySelector('.modal-close');
     const overlay = document.querySelector('.modal-overlay');
     const buttonService = document.querySelector('.button-services');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    modalBlock.style.zIndex = 9999;
+
     // функция toggle для открытия (закртыия) модального окна
     const toggleModalWindowCallBack = (toggle) => {
         if(toggle === 'open') {
@@ -33,6 +37,7 @@ const toggleModalWindow = () => {
     // оверлей
     overlay.addEventListener('click', () => {
         toggleModalWindowCallBack('close');
+        mobileMenu.style.right = '-400px';
     });
     // кнопка закрытие модального окна (крестик)
     modalBlockCloseBtn.addEventListener('click', () => {

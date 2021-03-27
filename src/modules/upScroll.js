@@ -18,7 +18,6 @@ const upScroll = () => {
         } else {
             upScrollBtn.style.display = 'none';
         }
-
     });
 
     const scrollToTop = () => {
@@ -36,7 +35,6 @@ const upScroll = () => {
 
     upScrollBtn.addEventListener('click', ()  => {
         scrolled = window.pageYOffset;
-        // window.scrollTo(0, 0);
         scrollToTop();
     });
 };

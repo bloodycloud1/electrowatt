@@ -9,7 +9,6 @@ const carrousel = () => {
         let result;
         if (widthWindow < 768) {
             result = 1;
-            console.log('mobile', result);
             return result;
         } else if (widthWindow < 992)  {
             result = 2;
@@ -60,7 +59,6 @@ const carrousel = () => {
             this.slides = document.querySelector(wrap).children;
             this.next = document.querySelector(next);
             this.prev = document.querySelector(prev);
-            // this.slidesToShow = slidesToShow;
             this.options = {
                 position,
             };
@@ -93,12 +91,9 @@ const carrousel = () => {
                 .slider-item {
                     display: flex !important;
                     margin: auto 0 !important;
-                
                     justify-content: space-between !important;
                 }
             `;
-            // ${this.options.widthSlide}
-            // flex: 0 0 ${this.addNumSlideToShow()}% !important;
             document.head.appendChild(style);
         }
 
@@ -123,13 +118,11 @@ const carrousel = () => {
                     this.wrap.style.transform = `translateX(-${this.options.position * 33}%)`;
                 }
             }
-           
         }
 
         nextSlide() {
             // EDIT this.options.position < this.slides.length - this.slidesToShow
             if(this.options.position < this.slides.length - 1) {
-
                 if(getScreeWidth() === 1) {
                     ++this.options.position;
                     this.wrap.style.transform = `translateX(-${this.options.position * 100}%)`;
