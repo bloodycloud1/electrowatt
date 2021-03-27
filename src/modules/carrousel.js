@@ -2,7 +2,6 @@
 
 const carrousel = () => {
     const carrouselMain = document.querySelector('.services-elements');
-    const carrouselTrack = document.querySelector('.services-carousel');
     const slides = document.querySelector('.services-carousel').children;
 
     const getScreeWidth = () => {
