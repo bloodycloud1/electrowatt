@@ -8,7 +8,7 @@ const sendFormModal = () => {
     // проверка и обрезание пробелов
     const checkFormSpace = (event) => {
         event.target.value = event.target.value.replace(/-+/gi, ' ').trim(); // убирем множество тире
-		event.target.value = event.target.value.replace(/\s+/gi, '').trim(); // убираем пробелы
+		event.target.value = event.target.value.replace(/\s+/gi, ' ').trim(); // убираем пробелы
     };
     // валадиция формы с именем
     nameInput.addEventListener('input', (event) => {
